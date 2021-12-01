@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "version": "2",
-    "title": "New DB test 56",
+    "title": "DB tester",
     "license": {
       "name": "MIT"
     }
