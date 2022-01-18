@@ -1,0 +1,1603 @@
+{
+    "info": {
+        "_postman_id": "e8cb5587-bff9-4d12-933b-38b10d356dba",
+        "name": "Test-2",
+        "description": "My Test\n\nContact Support:\n Name: Nuno Martins\n Email: someone@mail.com",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "organization",
+            "item": [
+                {
+                    "name": "{organization ID}",
+                    "item": [
+                        {
+                            "name": "Get Organization by ID",
+                            "id": "6b5f87d2-e365-437f-b694-d6b620254274",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization/:organizationID",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization",
+                                        ":organizationID"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "ab15b58c-43c3-4503-b529-c01db0bf3a5f",
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "id": "6dcacd50-75d1-439f-9e1e-09294cbf38e9",
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        },
+                                        {
+                                            "id": "3929683f-874e-4d68-81e2-e078fd565516",
+                                            "key": "organizationID",
+                                            "value": "1",
+                                            "description": "(Required) The id of the organization"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "6ec47270-f760-4a57-89a7-f6774bd60eec",
+                                    "name": "The required organization detail",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID?another={{value}}&uid=1",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "another",
+                                                    "value": "{{value}}"
+                                                },
+                                                {
+                                                    "key": "uid",
+                                                    "value": "1",
+                                                    "type": "text"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"id\": 1,\n \"name\": \"My Company\",\n \"businessName\": \"My Super Company\",\n \"address\": {\n  \"line1\": \"Avenida da República\",\n  \"line2\": \"Nº 458, 2ºEsq\",\n  \"city\": \"Lisboa\",\n  \"state\": \"Lisboa\",\n  \"postalCode\": \"1000-427\",\n  \"countryCode\": 620\n }\n}"
+                                },
+                                {
+                                    "id": "6acb3ba4-ee45-4dbb-a1c6-48487797617e",
+                                    "name": "Bad Request",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1949-11-05T20:05:18.628Z\",\n \"status\": 400,\n \"error\": \"Bad Request\",\n \"message\": \"organizationID in URL path is not a valid uint32\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "d95baded-3c1a-4987-9d42-88a9da198836",
+                                    "name": "Not Found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1956-07-12T08:30:29.537Z\",\n \"status\": 404,\n \"error\": \"Not Found\",\n \"message\": \"The required resource was not found\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "1fe0327a-ff2e-4729-b95c-09d449b1c432",
+                                    "name": "Unprocessable Entity",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                    "code": 422,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1998-12-23T09:12:56.992Z\",\n \"status\": 422,\n \"error\": \"Unprocessable Entity\",\n \"message\": \"Error rendering the response\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "996aa3ca-bd89-40f0-a083-c19b3ce0613c",
+                                    "name": "Internal Server Error",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Internal Server Error",
+                                    "code": 500,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1976-02-21T23:51:47.483Z\",\n \"status\": 500,\n \"error\": \"Internal Server Error\",\n \"message\": \"Error occured while getting the resource\",\n \"path\": \"/v1/organization/10\"\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update Organization",
+                            "id": "6a26281a-da16-4e7e-a6c9-6e9d389e634c",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization/:organizationID",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization",
+                                        ":organizationID"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "be791ceb-ee23-4d24-8dd4-5c85a8529a6c",
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "id": "6fbe71b7-a976-4949-83ee-f813c44b99ed",
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        },
+                                        {
+                                            "id": "69aa03ff-74a8-4db0-b69e-dd75e6009e58",
+                                            "key": "organizationID",
+                                            "value": "1",
+                                            "description": "(Required) The id of the organization"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "d21b6c31-72fa-47ef-9f40-2499e729ddef",
+                                    "name": "No Content",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "No Content",
+                                    "code": 204,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "b39bf1f7-0957-4097-8cd1-7560fa895423",
+                                    "name": "Bad Request",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1949-11-05T20:05:18.628Z\",\n \"status\": 400,\n \"error\": \"Bad Request\",\n \"message\": \"organizationID in URL path is not a valid uint32\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "2a1ddb9d-1257-4f11-9e11-15b0cf79a5c8",
+                                    "name": "Not Found",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1956-07-12T08:30:29.537Z\",\n \"status\": 404,\n \"error\": \"Not Found\",\n \"message\": \"The required resource was not found\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "2eeb526b-152c-4e27-9f65-32f672bfe6d8",
+                                    "name": "Unprocessable Entity",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                    "code": 422,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1998-12-23T09:12:56.992Z\",\n \"status\": 422,\n \"error\": \"Unprocessable Entity\",\n \"message\": \"Error rendering the response\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "2bca51f8-c326-4e1d-b287-574239503c44",
+                                    "name": "Internal Server Error",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Internal Server Error",
+                                    "code": 500,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1976-02-21T23:51:47.483Z\",\n \"status\": 500,\n \"error\": \"Internal Server Error\",\n \"message\": \"Error occured while getting the resource\",\n \"path\": \"/v1/organization/10\"\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete Organization",
+                            "id": "e62e75a6-0723-4932-8206-12d2ff7a4e64",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization/:organizationID?uild={{header}}",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization",
+                                        ":organizationID"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "uild",
+                                            "value": "{{header}}",
+                                            "type": "text"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "bfb95b62-16a8-44a5-b577-9abf598ae805",
+                                            "key": "organizationID",
+                                            "value": "1",
+                                            "description": "(Required) The id of the organization"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "a6bce7f1-85ab-43c2-8465-c457d3f408b1",
+                                    "name": "No Content",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "No Content",
+                                    "code": 204,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "52a3db2a-2c00-4ad4-8b83-db3d6b6ec8be",
+                                    "name": "Bad Request",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1949-11-05T20:05:18.628Z\",\n \"status\": 400,\n \"error\": \"Bad Request\",\n \"message\": \"organizationID in URL path is not a valid uint32\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "9d5b5497-a8a9-4994-8822-e5b1316b0174",
+                                    "name": "Not Found",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1956-07-12T08:30:29.537Z\",\n \"status\": 404,\n \"error\": \"Not Found\",\n \"message\": \"The required resource was not found\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "af9380ad-7a79-431f-a0f6-b28880a45aa6",
+                                    "name": "Unprocessable Entity",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                    "code": 422,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1998-12-23T09:12:56.992Z\",\n \"status\": 422,\n \"error\": \"Unprocessable Entity\",\n \"message\": \"Error rendering the response\",\n \"path\": \"/v1/organization/10\"\n}"
+                                },
+                                {
+                                    "id": "7174f46b-a4f0-4d79-9b56-7e7663310e58",
+                                    "name": "Internal Server Error",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/organization/:organizationID",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "organization",
+                                                ":organizationID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "port",
+                                                    "value": "{{port}}",
+                                                    "description": " (This can only be one of 15500)"
+                                                },
+                                                {
+                                                    "key": "version",
+                                                    "value": "{{version}}",
+                                                    "description": " (This can only be one of v1)"
+                                                },
+                                                {
+                                                    "key": "organizationID",
+                                                    "value": "1",
+                                                    "description": "(Required) The id of the organization"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Internal Server Error",
+                                    "code": 500,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"timestamp\": \"1976-02-21T23:51:47.483Z\",\n \"status\": 500,\n \"error\": \"Internal Server Error\",\n \"message\": \"Error occured while getting the resource\",\n \"path\": \"/v1/organization/10\"\n}"
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "eb868ba7-287a-4da6-b545-b49d65c9d73e"
+                },
+                {
+                    "name": "Search organizations",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status test\", function () {",
+                                    "    pm.response.to.have.status(404);",
+                                    "});",
+                                    "pm.test(\"Status test\", function () {",
+                                    "    pm.response.to.have.status(404);",
+                                    "});",
+                                    "pm.test(\"Status test\", function () {",
+                                    "    pm.response.to.have.status(404);",
+                                    "});",
+                                    "pm.test(\"Status test\", function () {",
+                                    "    pm.response.to.have.status(404);",
+                                    "});",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "id": "c841a68a-d085-4927-9b0b-3e0e08ba4f28",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Access-Control-Request-Headers",
+                                "value": "{{headers}}",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/organization?status=ACTIVE",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "organization"
+                            ],
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "ACTIVE",
+                                    "description": "Status to filter by, if not provided all status are considered"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "ff98886f-fbf8-4cad-9389-bc49ab7e17e0",
+                                    "key": "port",
+                                    "value": "{{port}}",
+                                    "description": " (This can only be one of 15500)"
+                                },
+                                {
+                                    "id": "fff75e0d-2787-4610-a43d-dc3797fa2061",
+                                    "key": "version",
+                                    "value": "{{version}}",
+                                    "description": " (This can only be one of v1)"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "9b232c35-37c9-4103-8c69-776814025174",
+                            "name": "A list of organizations",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "ACTIVE",
+                                            "disabled": true
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "[\n {\n  \"id\": 1,\n  \"name\": \"My Company\",\n  \"businessName\": \"My Super Company\",\n  \"address\": {\n   \"line1\": \"Avenida da República\",\n   \"line2\": \"Nº 458, 2ºEsq\",\n   \"city\": \"Lisboa\",\n   \"state\": \"Lisboa\",\n   \"postalCode\": \"1000-427\",\n   \"countryCode\": 620\n  }\n },\n {\n  \"id\": 1,\n  \"name\": \"My Company\",\n  \"businessName\": \"My Super Company\",\n  \"address\": {\n   \"line1\": \"Avenida da República\",\n   \"line2\": \"Nº 458, 2ºEsq\",\n   \"city\": \"Lisboa\",\n   \"state\": \"Lisboa\",\n   \"postalCode\": \"1000-427\",\n   \"countryCode\": 620\n  }\n }\n]"
+                        },
+                        {
+                            "id": "2056292a-9878-4ba1-8c5f-910cf96a6337",
+                            "name": "Bad Request",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization?status=ACTIVE",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "ACTIVE"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1949-11-05T20:05:18.628Z\",\n \"status\": 400,\n \"error\": \"Bad Request\",\n \"message\": \"organizationID in URL path is not a valid uint32\",\n \"path\": \"/v1/organization/10\"\n}"
+                        },
+                        {
+                            "id": "dab7211a-adcd-4a09-888b-2c43ba0edc89",
+                            "name": "Not Found",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "ACTIVE",
+                                            "disabled": true
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Not Found",
+                            "code": 404,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1956-07-12T08:30:29.537Z\",\n \"status\": 404,\n \"error\": \"Not Found\",\n \"message\": \"The required resource was not found\",\n \"path\": \"/v1/organization/10\"\n}"
+                        },
+                        {
+                            "id": "a4bcab93-2aeb-4507-acb2-1b00f43b902c",
+                            "name": "Unprocessable Entity",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization?status=ACTIVE",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "ACTIVE"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                            "code": 422,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1998-12-23T09:12:56.992Z\",\n \"status\": 422,\n \"error\": \"Unprocessable Entity\",\n \"message\": \"Error rendering the response\",\n \"path\": \"/v1/organization/10\"\n}"
+                        },
+                        {
+                            "id": "666de0fd-7e68-4b22-824b-f5e3beb05611",
+                            "name": "Internal Server Error",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization?status=ACTIVE",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "status",
+                                            "value": "ACTIVE"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1976-02-21T23:51:47.483Z\",\n \"status\": 500,\n \"error\": \"Internal Server Error\",\n \"message\": \"Error occured while getting the resource\",\n \"path\": \"/v1/organization/10\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create new Organization",
+                    "id": "62267cc6-74b5-463e-bfd6-ff17122c0198",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/organization",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "organization"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "b44cffa8-8bef-486c-a830-819331815c6e",
+                                    "key": "port",
+                                    "value": "{{port}}",
+                                    "description": " (This can only be one of 15500)"
+                                },
+                                {
+                                    "id": "f4b82091-843c-45b0-912a-76fd80a67424",
+                                    "key": "version",
+                                    "value": "{{version}}",
+                                    "description": " (This can only be one of v1)"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "cce622fc-ff33-45a3-a3e5-9abd05084d04",
+                            "name": "Organization created",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"id\": 1,\n \"name\": \"My Company\",\n \"businessName\": \"My Super Company\",\n \"address\": {\n  \"line1\": \"Avenida da República\",\n  \"line2\": \"Nº 458, 2ºEsq\",\n  \"city\": \"Lisboa\",\n  \"state\": \"Lisboa\",\n  \"postalCode\": \"1000-427\",\n  \"countryCode\": 620\n }\n}"
+                        },
+                        {
+                            "id": "5d590175-c577-41bb-872f-6adbf911db92",
+                            "name": "Bad Request",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Bad Request",
+                            "code": 400,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1949-11-05T20:05:18.628Z\",\n \"status\": 400,\n \"error\": \"Bad Request\",\n \"message\": \"organizationID in URL path is not a valid uint32\",\n \"path\": \"/v1/organization/10\"\n}"
+                        },
+                        {
+                            "id": "098aa58c-92fd-445c-a7d6-93858edaa497",
+                            "name": "Unprocessable Entity",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                            "code": 422,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1998-12-23T09:12:56.992Z\",\n \"status\": 422,\n \"error\": \"Unprocessable Entity\",\n \"message\": \"Error rendering the response\",\n \"path\": \"/v1/organization/10\"\n}"
+                        },
+                        {
+                            "id": "db892801-076b-4f0b-b1a4-882ffa5310ce",
+                            "name": "Internal Server Error",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"name\": \"My Company\",\n    \"businessName\": \"My Super Company\",\n    \"address\": {\n        \"line1\": \"Avenida da República\",\n        \"line2\": \"Nº 458, 2ºEsq\",\n        \"city\": \"Lisboa\",\n        \"state\": \"Lisboa\",\n        \"postalCode\": \"1000-427\",\n        \"countryCode\": 620\n    }\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/organization",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "organization"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "port",
+                                            "value": "{{port}}",
+                                            "description": " (This can only be one of 15500)"
+                                        },
+                                        {
+                                            "key": "version",
+                                            "value": "{{version}}",
+                                            "description": " (This can only be one of v1)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"timestamp\": \"1976-02-21T23:51:47.483Z\",\n \"status\": 500,\n \"error\": \"Internal Server Error\",\n \"message\": \"Error occured while getting the resource\",\n \"path\": \"/v1/organization/10\"\n}"
+                        }
+                    ]
+                }
+            ],
+            "id": "0bb379ff-59f6-4285-8d54-d2cafcc62978"
+        }
+    ],
+    "variable": [
+        {
+            "id": "75967385-c1ce-4ea4-af5e-4c02fed99ce1",
+            "key": "port",
+            "value": "15500",
+            "type": "any",
+            "description": " (This can only be one of 15500)"
+        },
+        {
+            "id": "127f6c38-e24f-43da-9dbc-611d01e10311",
+            "key": "version",
+            "value": "v1",
+            "type": "any",
+            "description": " (This can only be one of v1)"
+        },
+        {
+            "id": "71746cb3-30bf-44c4-8ee1-6e4899cb4648",
+            "key": "baseUrl",
+            "value": "http://localhost:{{port}}/{{version}}",
+            "type": "string"
+        }
+    ]
+}
